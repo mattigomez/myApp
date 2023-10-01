@@ -7,7 +7,7 @@ import styles from './products.style'
 
 const Products = ({ navigation, route }) => {
   const [arrProducts, setArrProducts] = useState([])
-  const [keyword, setKeyword] = useState('')
+  const [keyword, setKeyword] = useState('') 
   const { category } = route.params
 
   useEffect(() => {
