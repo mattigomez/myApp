@@ -1,12 +1,17 @@
 import { Pressable, Text, View } from "react-native";
 
-import React, {useEffect} from "react";
+import React from "react";
 import styles from './categoryItem.style'
+import { useDispatch } from "react-redux";
+import { setCategorySelected } from "../../../../features/shop/shopSlice";
 
 const CategoryItem = ({ category, navigation }) => { 
+  const dispatch = useDispatch()
     return (
       <Pressable
-        onPress={() => navigation.navigate('Products', { category })}
+        onPress={() => {
+          dispatch(setCategorySelected(category))
+          navigation.navigate('Products', { category })}}
         style={styles.container}
       >
         <View style={styles.contentContainer}>
