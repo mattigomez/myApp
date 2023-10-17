@@ -5,6 +5,7 @@ import Cart from './cart/cart'
 import Orders from "./orders/orders";
 import Signup from "./signup/signup";
 import Login from "./login/login";
+import Profile from "./profile/profile"
 
 
-export { Home , Products ,Details, Cart, Orders, Signup, Login};
+export { Home , Products ,Details, Cart, Orders, Signup, Login, Profile};

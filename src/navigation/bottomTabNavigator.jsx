@@ -5,6 +5,7 @@ import OrdersNavigator from "./ordersNavigator";
 import { colors } from "../constants/colors";
 import { StyleSheet } from "react-native";
 import { Entypo } from "@expo/vector-icons";
+import ProfileNavigator from "./profileNavigator";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -42,6 +43,15 @@ function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <Entypo name="list" size={24} color={focused ? "black" : "white"} />
+          ),
+        }}
+      />
+         <BottomTab.Screen
+        name="ProfileNav"
+        component={ProfileNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Entypo name="user" size={24} color={focused ? "black" : "white"} />
           ),
         }}
       />

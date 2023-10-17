@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import AuthStackNavigator from './authStackNavigator'
 import BottomTabNavigator from './bottomTabNavigator'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useGetProfileImageQuery } from '../services/shopApi'
+import { setCameraImage } from '../features/auth/authSlice'
 
 
 const MainNavigator = () => {
-    const user = useSelector(state => state.auth.user)
+    const {user,localId} = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+    const {data,error,isLoading} = useGetProfileImageQuery(localId)
+
+    useEffect(() => {
+        if(data) {
+            dispatch(setCameraImage(data.image))
+        }
+    }, [data])
     
     return user ? <BottomTabNavigator/>:<AuthStackNavigator/>
 }
