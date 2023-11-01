@@ -22,7 +22,7 @@ const Details = ({route}) => {
       <Text style={styles.description}>{product.description}</Text>
       <Text style={styles.price}>{`$ ${product.price}`}</Text>
       <Pressable onPress={handleAddToCart}>
-        <Text>add to cart</Text>
+        <Text style={{ fontSize: 20 ,paddingLeft: 20}}>add to cart</Text>
       </Pressable>
     </View>
   )

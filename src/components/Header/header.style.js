@@ -5,9 +5,10 @@ import { colors } from '../../constants/colors';
 export default styles = StyleSheet.create({
     container: {
         backgroundColor: colors.primary,
+        flexDirection:'row',
         height: 70,
         width: '100%',
-        justifyContent:'center',
+        justifyContent:'space-around',
         alignItems: 'center',
         paddingTop:15
       },

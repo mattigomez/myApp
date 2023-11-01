@@ -1,54 +1,49 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    user: 'userLogged',
-    updatedAt: Date.now().toLocaleString(),
-    items:[],
-    total: null
+  user: 'userLogged',
+  updatedAt: Date.now().toLocaleString(),
+  total: 0,
+  items: [],
 }
 
 export const cartSlice = createSlice({
-    name:'cart',
-    initialState,
-    reducers: {
-        addItem: (state,action) => {
-            const productRepeated = state.items.find(
-                item => item.id === action.payload.id)
-                if(productRepeated){
-                    const itemsUpdated = state.items.map(item => {
-                        if(item.id === action.payload.id) {
-                            item.quantity += action.payload.quantity
-                            return item
-                        }
-                        return
-                    })
-                    const total = itemsUpdated.reduce(
-                        (acc, current) => (acc += current.price * current.quantity)
-                    )
-                    state = {
-                        ...state,
-                        items: itemsUpdated,
-                        total,
-                        updatedAt: new Date().toLocaleString()
-                    }
-                } else {
-                    state.items.push(action.payload)
-                    const total = state.items.reduce(
-                        (acc,current) => (acc += current.price * current.quantity)
-                    )
-                    state ={
-                        ...state,
-                        total,
-                        updatedAt: new Date().toLocaleString()
-                    }
-                }
-        },
-        removeItem: (state,action) =>{
-            a
-        },
-    }
+  name: 'cart',
+  initialState,
+  reducers: {
+    addItem: (state, action) => {
+      const products = state.items
+      const productRepeated = products.find(
+        item => item.id === action.payload.id
+      )
+
+      if (!productRepeated)
+        return {
+          ...state,
+          items: [...state.items, action.payload],
+          total: state.total + action.payload.price,
+          updatedAt: new Date().toLocaleString(),
+        }
+
+      const itemsUpdated = products.map(item => {
+        if (item.id === action.payload.id) {
+          return Object.assign({}, item, {
+            quantity: item.quantity + action.payload.quantity,
+          })
+        }
+        return item
+      })
+      return {
+        ...state,
+        items: itemsUpdated,
+        total: state.total + action.payload.price,
+        updatedAt: new Date().toLocaleString(),
+      }
+    },
+    removeItem: (state, action) => {},
+  },
 })
 
-export const { addItem, removeItem} = cartSlice.actions
+export const { addItem, removeItem } = cartSlice.actions
 
 export default cartSlice.reducer

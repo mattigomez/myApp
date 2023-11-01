@@ -5,7 +5,7 @@ import { apiKey, authUrl } from '../firebase'
 export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({baseUrl: authUrl}),
-    endpoints: (builder) => ({
+    endpoints: builder => ({
         signUp: builder.mutation({
             query: ({...auth}) => ({
                 url: `accounts:signUp?key=${apiKey}`,

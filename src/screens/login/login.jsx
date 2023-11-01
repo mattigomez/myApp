@@ -4,12 +4,13 @@ import styles from './login.style'
 import { useLogInMutation } from '../../services/authApi'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../features/auth/authSlice'
+import { insertSession } from '../../db'
 
 const Login = ({navigation}) => {
 
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
-  const [triggerLogin, result ] = useLogInMutation()
+  const [triggerLogin] = useLogInMutation()
   const dispatch = useDispatch()
 
   const onSubmit = () => {
@@ -18,10 +19,17 @@ const Login = ({navigation}) => {
       email,
       password,
     })
-    console.log(result);
-    if(result.isSuccess) {
+    .unwrap()
+    .then(result => {
       dispatch(setUser(result))
-    }
+      insertSession({
+        localId: result.localId,
+        email: result.email,
+        token: result.idToken,
+      })
+      .then(result => console.log(result))
+      .catch(err => console.log(err.message))
+    })
   }
 
 

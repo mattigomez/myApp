@@ -5,11 +5,12 @@ import { colors } from "../../constants/colors";
 export default styles = StyleSheet.create({
     container: {
         flex:1,
+        backgroundColor: colors.secondary,
         justifyContent:'center',
         alignItems:'center'
     },
     loginContainer: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.secondary,
         paddingHorizontal: 25,
         width: '100%',
         justifyContent:'center',
