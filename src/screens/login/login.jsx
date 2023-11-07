@@ -12,9 +12,11 @@ const Login = ({navigation}) => {
   const [password,setPassword] = useState('')
   const [triggerLogin] = useLogInMutation()
   const dispatch = useDispatch()
+  const [error, setError] = useState(null)
 
   const onSubmit = () => {
-    console.log(email,password);
+    setError(null);
+    //console.log(email,password);
     triggerLogin({
       email,
       password,
@@ -30,23 +32,27 @@ const Login = ({navigation}) => {
       .then(result => console.log(result))
       .catch(err => console.log(err.message))
     })
+    .catch(err => {
+      setError('Usuario o contraseña incorrectos');
+    })
   }
 
 
   return (
     <View style={styles.container}>
       <View style={styles.loginContainer}>
-        <Text>
-            Login to start
+        <Text style={{paddingVertical:10, fontFamily:'Arsenal'}}>
+            Iniciar Sesion
         </Text>
-        <TextInput style={styles.inputEmail} value={email} onChangeText={setEmail}/>
-        <TextInput style={styles.inputEmail} value={password} onChangeText={setPassword}/>
+        <TextInput style={styles.inputEmail} value={email} onChangeText={setEmail} placeholder='email'/>
+        <TextInput style={styles.inputEmail} value={password} onChangeText={setPassword} secureTextEntry={true} placeholder='contraseña'/>
+        {error && <Text style={{ color: 'red',fontWeight:'bold',paddingBottom:10, }}>{error}</Text>}
         <Pressable style={styles.loginButton} onPress={onSubmit}>
-            <Text style={{color: 'red'}}>Login</Text>
+            <Text>Login</Text>
         </Pressable>
-        <Text>No tienes cuenta?</Text>
+        <Text style={{paddingVertical:10,fontFamily:'AresenalBoldItalic'}}>No tienes cuenta?</Text>
         <Pressable style={styles.loginButton} onPress={() => navigation.navigate('Signup')}>
-            <Text style={{color: 'red'}}>Registrarse</Text>
+            <Text>Registrarse</Text>
         </Pressable>
       </View>
     </View>

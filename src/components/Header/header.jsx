@@ -18,7 +18,10 @@ const Header = ({title}) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>{title}</Text>
-            <Entypo name="log-out" size={28} onPress={logout}/>
+            <View style={styles.iconContainer}>
+                <Entypo name="log-out" size={22} onPress={logout} />
+            </View>
+
         </View>
     )
 }

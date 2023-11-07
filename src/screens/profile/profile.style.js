@@ -6,17 +6,17 @@ export default styles = StyleSheet.create({
     container: {
         backgroundColor: colors.secondary,
         flex:1,
-        justifyContent:'center',
         alignItems:'center'
     },
     image: {
+        marginTop:100,
         width:150,
-        height:150
+        height:150,
+        borderRadius:20
     },
     cameraButton: {
-        backgroundColor: colors.secondary,
-        height: 50,
-        width: '100%'
+        alignItems:'center',
+        padding:10,
     }
 
 }) 

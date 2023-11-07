@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../constants/colors";
 
 export default styles = StyleSheet.create({
     container: {
@@ -10,8 +11,8 @@ export default styles = StyleSheet.create({
         paddingHorizontal:15,
         fontSize: 30,
         marginVertical: 15,
-        fontWeight:'bold',
-        textAlign:"auto"
+        textAlign:"auto",
+        fontFamily:'AresenalBoldItalic'
 
     },
     image: {
@@ -28,6 +29,16 @@ export default styles = StyleSheet.create({
       },
       description: {
         padding:30,
+        fontFamily:'ArsenalItalic'
         
-      }
+      },
+      addProduct:{
+        fontSize: 15,
+        height:45,
+        marginHorizontal:120,
+        textAlignVertical:'center',
+        textAlign:'center',
+        borderRadius:10,
+        backgroundColor:colors.primary
+      },
     }) 

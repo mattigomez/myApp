@@ -21,6 +21,7 @@ export default styles = StyleSheet.create({
         backgroundColor: colors.primary,
         height: 30,
         marginVertical:15,
+        paddingHorizontal:10,
         justifyContent:'center',
         alignItems:'center'
     },

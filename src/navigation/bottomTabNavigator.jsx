@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CartNavigator from "./cartNavigator";
 import StackNavigator from "./stackNavigator";
-import OrdersNavigator from "./ordersNavigator";
 import { colors } from "../constants/colors";
 import { StyleSheet } from "react-native";
 import { Entypo } from "@expo/vector-icons";
@@ -34,15 +33,6 @@ function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <Entypo name="shopping-cart" size={24} color={focused ? "black" : "white"} />
-          ),
-        }}
-      />
-        <BottomTab.Screen
-        name="OrdersNav"
-        component={OrdersNavigator}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Entypo name="list" size={24} color={focused ? "black" : "white"} />
           ),
         }}
       />

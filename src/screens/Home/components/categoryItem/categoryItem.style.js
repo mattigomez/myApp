@@ -17,9 +17,7 @@ export default styles = StyleSheet.create({
   },
   text: {
     fontSize: 25,
-    color: "black",
-    fontWeight: "400",
-    fontVariant: "no-common-ligatures",
+    fontFamily:'AresenalBoldItalic'
   },
   contentContainer: {
     paddingLeft: 20,

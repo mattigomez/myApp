@@ -10,22 +10,24 @@ export default styles = StyleSheet.create({
         alignItems:'center'
     },
     loginContainer: {
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.primary,
         paddingHorizontal: 25,
-        width: '100%',
+        width: '80%',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        borderRadius:30
     },
     inputEmail: {
         width:'95%',
-        backgroundColor: colors.primary,
+        backgroundColor: colors.secondary,
+        paddingHorizontal:5,
         height: 30,
         marginVertical:15,
         justifyContent:'center',
         alignItems:'center'
     },
     loginButton: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.secondary,
         width: '50%',
         height: 50,
         borderRadius:10,

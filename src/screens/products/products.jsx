@@ -1,4 +1,4 @@
-import { FlatList, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Text ,SafeAreaView ,Image , TouchableOpacity, View } from 'react-native'
 import { Header, SearchInput } from '../../components'
 import React, { useEffect, useState } from 'react'
 import styles from './products.style'
@@ -11,9 +11,9 @@ const Products = ({ navigation}) => {
   const [keyword, setKeyword] = useState('') 
   const [products, setProducts] = useState([])
   const { data,isLoading } = useGetProductsByCatergoryQuery(category)
-  
+
   useEffect(() => {
-    console.log(data, isLoading);
+ // console.log(data, isLoading);
     if (!isLoading) {
       const dataArr = Object.values(data)
       setProducts(dataArr)
@@ -25,25 +25,32 @@ const Products = ({ navigation}) => {
   }, [isLoading, keyword])
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header title={category} />
       <SearchInput onSearch={setKeyword} />
       <View style={styles.listContainer}>
       {!isLoading && (
         <FlatList
           data={products}
+          numColumns={2}
           renderItem={({ item }) => (
             <TouchableOpacity
+              style={styles.productContainer}
               onPress={() => navigation.navigate('Details', { product: item })}
             >
-              <Text>{item.title}</Text>
+              <Image
+                style={styles.image}
+                source={{uri:item.image}}
+              />
+              <Text style={styles.title}>{item.title}</Text>
+              <Text style={styles.price}>{`$${item.price}`}</Text>
             </TouchableOpacity>
           )}
           keyExtractor={item => item.id}
         />
       )}
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
