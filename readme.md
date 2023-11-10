@@ -1,6 +1,6 @@
 # Mateando Rosario - Tu Ecommerce de Mates, Accesorios y Termos
 
-¡Bienvenido a Mateando Rosario! Este proyecto es un ecommerce desarrollado con React Native que te permite explorar y comprar una variedad de mates, accesorios y termos.
+¡Bienvenido a Mateando Rosario! Este proyecto es un ecommerce desarrollado con React Native que te permite explorar y comprar una variedad de mates, termos y accesorios.
 
 ## Funcionalidades
 
@@ -10,7 +10,7 @@
 
 - **Carrito de compras**: Agrega tus productos favoritos al carrito y revisa tu selección antes de comprar.
 
-- **Autenticación de usuarios**: Crea tu cuenta en Mateando Rosario para acceder a funciones exclusivas y realizar un seguimiento de tus compras.
+- **Autenticación de usuarios**: Crea tu cuenta en Mateando Rosario para acceder a la app y realizar un seguimiento de tus compras.
 
 - **Base de datos en Firebase**: Todas las compras se almacenan de forma segura en nuestra base de datos en Firebase.
 
@@ -18,10 +18,10 @@
 
 Sigue estos pasos para ejecutar Mateando Rosario localmente:
 
-1. Clona este repositorio: `git clone https://github.com/tuusuario/mateando-rosario.git`
-2. Navega al directorio del proyecto: `cd mateando-rosario`
+1. Clona este repositorio: `git clone https://github.com/mattigomez/myApp.git`
+2. Navega al directorio del proyecto: `cd myApp`
 3. Instala las dependencias: `npm install`
-4. Configura tu instancia de Firebase: Agrega las credenciales de Firebase en el archivo `firebaseConfig.js`.
+4. Configura tu instancia de Firebase: Agrega las credenciales de Firebase en el archivo `firebase/index.js`.
 5. Inicia la aplicación: `npm start`
 
 ## Contribuciones
