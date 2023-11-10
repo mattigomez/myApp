@@ -1,4 +1,4 @@
-# Mateando Rosario - Tu Ecommerce de Mates, Accesorios y Termos
+# Mateando Rosario - Tu Ecommerce de Mates, Termos y Accesorios
 
 ¡Bienvenido a Mateando Rosario! Este proyecto es un ecommerce desarrollado con React Native que te permite explorar y comprar una variedad de mates, termos y accesorios.
 
